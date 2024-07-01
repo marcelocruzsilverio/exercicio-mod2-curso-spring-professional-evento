@@ -2,9 +2,7 @@ package com.marcelocruz.evento.entities;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
 @Entity
@@ -27,6 +25,12 @@ public class Atividade {
 
     public Atividade() {
     }
+
+    @ManyToMany
+    @JoinTable(name = "participante_atividade",
+            joinColumns = @JoinColumn(name = "atividade_id"),
+            inverseJoinColumns = @JoinColumn(name = "participante_id"))
+    private Set<Participante> participantes = new HashSet<>();
 
     public Atividade(Integer id, String nome, String descricao, Double preco, Categoria categoria) {
         this.id = id;
