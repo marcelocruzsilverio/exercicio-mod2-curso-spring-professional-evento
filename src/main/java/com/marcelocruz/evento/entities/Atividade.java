@@ -85,6 +85,10 @@ public class Atividade {
         return blocos;
     }
 
+    public Set<Participante> getParticipantes() {
+        return participantes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
